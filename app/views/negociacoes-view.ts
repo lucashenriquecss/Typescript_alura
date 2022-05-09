@@ -1,11 +1,8 @@
 import { List } from '../models/lista-negociacao.js';
+import { View } from './view.js';
 
-export class NegociacaoView{
-    private elemento: HTMLElement;
-
-    constructor(selector:string){
-        this.elemento = document.querySelector(selector)
-    }
+export class NegociacaoView extends View{
+  
 
     template(model: List): string{
         //unico metodo que sempre é uma string

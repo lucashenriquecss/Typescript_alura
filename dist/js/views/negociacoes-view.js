@@ -1,7 +1,5 @@
-export class NegociacaoView {
-    constructor(selector) {
-        this.elemento = document.querySelector(selector);
-    }
+import { View } from './view.js';
+export class NegociacaoView extends View {
     template(model) {
         //unico metodo que sempre é uma string
         return `
