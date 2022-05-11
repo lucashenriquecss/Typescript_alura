@@ -1,7 +1,7 @@
 import { List } from '../models/lista-negociacao.js';
 import { View } from './view.js';
 
-export class NegociacaoView extends View{
+export class NegociacaoView extends View<List>{
   
 
     template(model: List): string{
