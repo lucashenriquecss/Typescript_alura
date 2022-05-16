@@ -4,7 +4,7 @@ import { View } from './view.js';
 export class NegociacaoView extends View<List>{
   
 
-    template(model: List): string{
+    protected template(model: List): string{
         //unico metodo que sempre é uma string
         return `
             <table class="table table-hover table-bordered">
@@ -19,7 +19,7 @@ export class NegociacaoView extends View<List>{
                     ${model.listar().map(negociacao => {
                         return `
                         <tr>
-                            <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                            <td>${this.formatar(negociacao.data)}</td>
                             <td>${negociacao.quantidade}</td>
                             <td>${negociacao.valor}</td>
                         </tr>
@@ -30,6 +30,11 @@ export class NegociacaoView extends View<List>{
             </table> 
         `;
     }
+
+    public formatar(data:Date): string {
+        return new Intl.DateTimeFormat().format(data);
+    }
+
     update(model: List): void{
         const template = this.template(model)
         this.elemento.innerHTML = template ;
