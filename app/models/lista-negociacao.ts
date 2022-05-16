@@ -6,11 +6,11 @@ export class List {
 
  
 
-    adicionar(negociacao: Negociacao){
+    public adicionar(negociacao: Negociacao){
         this.list.push(negociacao);
     }
 
-    listar():readonly Negociacao[]{ //listar e ser imutavel;ReadonlyArray<Negociacao>
+    public listar():readonly Negociacao[]{ //listar e ser imutavel;ReadonlyArray<Negociacao>
         return this.list
     }
 }
