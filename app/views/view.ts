@@ -4,7 +4,15 @@ export  abstract class View<T>{ //T = definindo o tipo, quem vai definir sao as 
     private escapar = false;
 
     constructor(selector?:string, escapar?: boolean){
-        this.elemento = document.querySelector(selector);
+
+        const elemento = document.querySelector(selector);
+        
+        if(elemento){
+            this.elemento = elemento as HTMLElement;
+        }else{
+            throw Error(`Seletor ${selector} não existe no DOM. Verifique desenvolvedor!!!`)
+        }
+        
         if (escapar){
             this.escapar = escapar;
         }
